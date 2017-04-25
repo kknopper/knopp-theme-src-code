@@ -1,0 +1,22 @@
+{
+    "src": {
+        "root": "./src/",
+	    "html": "./src/templates/**/*.twig",
+	    "js": "./src/js/main.js",
+	    "scss": "./src/scss/**/*.scss",
+	    "fonts": "./src/fonts/**/*",
+	    "imgs": "./src/images/**/*",
+	    "docs": "./src/documents/**/*",
+        "blueprints": "./src/blueprints/*.yaml"
+    },
+    "dist": {
+        "root": "/home/grav/www/html/user/grav/target/user/themes/knopp-theme/",
+	    "html": "/home/grav/www/html/user/grav/target/user/themes/knopp-theme/templates",
+	    "js": "/home/grav/www/html/user/grav/target/user/themes/knopp-theme/js/",
+	    "css": "/home/grav/www/html/user/grav/target/user/themes/knopp-theme/css/",
+	    "fonts": "/home/grav/www/html/user/grav/target/user/themes/knopp-theme/fonts/",
+	    "imgs": "/home/grav/www/html/user/grav/target/user/themes/knopp-theme/images/",
+	    "docs": "/home/grav/www/html/user/grav/target/user/themes/knopp-theme/documents/",
+        "blueprints": "/home/grav/www/html/user/grav/target/user/themes/knopp-theme/blueprints/"
+    }
+}

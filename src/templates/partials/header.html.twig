@@ -1,0 +1,36 @@
+<div class="wrapper">
+    <header role="navigation" class="header theme-color-bg">
+        <a href="/home">
+            <img class="site-logo theme-color-bg" src="{{ theme_url }}/images/logo.svg">
+        </a>
+        <nav class="container">
+            <ul class="nav navbar navbar-right">
+                {% for page in pages.children %}
+                {% if page.visible %}
+                {% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
+                    {% if page.menu != 'Home' %}{# hide home link #}
+                        <li class="{{ current_page }}"><a href="{{ page.url }}">{{ page.menu }}</a></li>
+                    {% else %}
+                        <li class="{{ current_page }}"><a href="/home"><i class='fa fa-home'></i></a></li>
+                    {% endif %}
+                {% endif %}
+                {% endfor %}
+                <li class="nav-trigger">
+                    <img src="{{ theme_url }}/images/nav-plus-white.png" />
+                </li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<div class="hero">
+    <div class="hero-wrap container">
+        <div class="hero-text">
+            <h1>{{page.header.hero.h1}}</h1>
+            <h2>{{page.header.hero.h2}}</h2>
+        </div>
+    </div>
+</div>
+
+{% for portfolio in page.collection %}
+    {{ portfolio.1 }}
+{% endfor %}

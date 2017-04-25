@@ -1,0 +1,115 @@
+.footer {
+	position: relative;
+	margin-top: 65px;
+	color: $color-white;
+	
+
+	a {
+		color: $color-white;
+		font-family: Montserrat;
+		font-size: 0.85em;
+		letter-spacing: 1.5px;
+	}
+
+	&-container {
+		display: block;
+		width: 88%;
+    	max-width: 80em;
+    	margin: 0 auto;
+		position: relative;
+		z-index: 1;
+
+		&:before {
+			display: block;
+		}
+		
+		@include breakpoint(desktop) {
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+
+	&-share {
+		display: block;
+		font-size: 1.25em;
+		padding-top: 65px;
+		text-align: center;
+
+		@include breakpoint(desktop) {
+			padding: 0;
+		}	
+	}
+
+	&-links {
+		display: none;
+	}
+
+	&-share, &-links {
+		width: auto;
+		margin: 0;
+		vertical-align: top;
+
+		@include breakpoint(desktop) {
+			width: auto;
+			margin-top: 20px;
+			display: inline-flex;
+		}
+
+		li {
+			display: inline-block;
+			list-style-type: none;
+			padding: 10px 7px;
+
+			@include breakpoint(tablet) {
+				padding: 10px;
+			}
+		}
+	}
+
+	&-legal {
+		text-align: center;
+		display: block;
+		margin: 0 auto;
+		padding: 10px;
+
+		@include breakpoint(desktop) {
+			width: 100%;
+		}
+	}
+
+	&-logo {
+		display: block;
+		width: 100px;
+		height: 100px;
+		border-width: 4px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		border-radius: 50%;
+		overflow: hidden;
+		background-image: url('../images/mii.png');
+		background-size: 100px;
+		background-position: 60% 5px;
+		background-repeat: no-repeat;
+		cursor: pointer;
+
+		&-wrap {
+			width: 108px;
+			height: 108px;
+			// background-color: $color-white;
+			// background: linear-gradient(180deg, transparent 50%, white 50%);
+			background-image: url("../images/halftone.png");
+			border-radius: 50%;
+			position: absolute;
+			left: 50%;
+			top: 0%;
+			transform: translate(-50%, -50%);
+			z-index: 2;
+		}
+
+		&:hover {
+			background-position: 60% -120px;
+		}
+	}
+}

@@ -1,0 +1,60 @@
+<div class="search-wrapper" id="search-box">
+    <input class="search-input" type="text" placeholder="Search" value="{{ query }}" data-search-input="{{ base_url }}{{ config.plugins.simplesearch.route == '@self' ? '' : (config.plugins.simplesearch.route == '/' ? '' : config.plugins.simplesearch.route) }}/query" /><i id='search-icon' class="fa fa-search" aria-hidden="true"></i>
+
+    {% if config.plugins.simplesearch.display_button %}
+        <button class="search-submit"><img src="{{ url('plugin://simplesearch/assets/search.svg') }}" /></button>
+    {% endif %}
+    <script>
+
+        var i, el;
+        var input = document.getElementsByClassName('search-input');
+        var searchInput = input[0].dataset.searchInput;
+
+        for(i=0; i<input.length; i++) {
+            el = input[i];
+            el.addEventListener('keyup', function(event){
+                var searchWrapper = document.getElementById('search-box');
+                var searchIcon = document.getElementById('search-icon');
+                console.log(this.value.length);
+
+                if (this.value.length >= {{ config.get('plugins.simplesearch.min_query_length', 3) }}) {
+                    if (searchWrapper.classList.contains('invalid')) {
+                        searchWrapper.classList.remove('invalid');
+                        searchIcon.classList.remove('invalid')
+                    }
+                    searchWrapper.classList.add('valid');
+                    searchIcon.classList.add('valid');
+                    // console.log(searchWrapper.classList, 'valid');
+                } else {
+                    if(this.value.length != 0) {
+                        searchWrapper.classList.add('invalid');
+                        searchIcon.classList.add('invalid');
+                        // console.log(this.value.length);
+                        // console.log('invalid');
+                    } else {
+                        searchWrapper.classList.remove('invalid');
+                        searchIcon.classList.remove('invalid');
+                    }
+                }
+
+                if (event.keyCode == 13 && this.value.length >= {{ config.get('plugins.simplesearch.min_query_length', 3) }}) {
+                    event.preventDefault();
+                    
+                    window.location.href = searchInput + '{{ config.system.param_sep }}' + this.value;
+                }
+            }, false);
+        }
+
+        {% if config.plugins.simplesearch.display_button %}
+        var button = document.getElementsByClassName('search-submit');
+        for(i=0; i<input.length; i++) {
+            el = button[i];
+            el.addEventListener('click', function(event){
+                event.preventDefault();
+                window.location.href = searchInput + '{{ config.system.param_sep }}' + input[0].value;
+            });
+        }
+        {% endif %}
+
+    </script>
+</div>

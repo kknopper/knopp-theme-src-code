@@ -1,0 +1,139 @@
+.sidebar {
+
+	&-content {
+
+		h3 {
+			margin-bottom: 0;
+			font-size: rem(24);
+			padding-top: rem(50);
+
+			@include breakpoint(desktop) {
+				font-size: rem(36);
+			}
+		}
+
+		.tags a {
+			width: 45%;
+			margin: 1.5%;
+			cursor: pointer;
+			display: inline-block;
+			white-space: normal;
+			vertical-align: top;
+			padding: 5px;
+			font-size: rem(10);
+			font-weight: normal;
+
+			@include breakpoint(tablet) {
+				width: 100%;
+				margin: 1.5% 0;
+				font-size: rem(12);
+			}
+
+			@include breakpoint(desktop) {
+				width: 45%;
+				margin: 1.5%;
+				
+			}
+			
+
+			&:nth-child(odd) {
+				margin-left: 0;
+			}
+		}
+
+		
+
+		.archives {
+			margin-left: 0;
+
+			li {
+				list-style-type: none;
+				font-family: Montserrat;
+			}
+
+			a {
+				display: block;
+			}
+
+			.label {
+				display: inline-block;
+				color: $color-white;
+				background-color: $color-secondary;
+				border-radius: 50%;
+				padding: 5px;
+				width: 35px;
+				height: 35px;
+				text-align: center;
+				// float: right;          
+			}
+		}
+	}
+}
+
+.search-wrapper {
+	position: relative;
+
+	.search-input-wrapper {
+		display: block;
+	}
+
+	.search-input {
+		width: 100%;
+		margin-bottom: rem(20);
+	}
+
+	.fa {
+		font-size: 1.25em;
+		position: absolute;
+		right: 15px;
+		top: 25px;
+		color: $color-secondary;
+		transition: color 0.3s ease-in-out;
+
+		&.invalid {
+			color: red;
+		}
+
+		@include breakpoint(desktop) {
+			font-size: 1.75em;
+			top: 35px;
+		}
+	}
+
+	&.invalid {
+		.search-input {
+			border-bottom: 3px solid red;
+		}
+	}
+}
+
+.search-input {
+	border: 0;
+	background-color: transparent;
+	height: auto;
+	display: block;
+	padding-left: 0;
+	border-bottom: 3px solid $color-secondary;
+	padding-bottom: 0;
+	display: inline-block;
+	padding-top: 0;
+	line-height: 1.2;
+	transition: border-bottom 0.3s ease-in-out;
+
+	&:active, &:focus {
+		outline: none;
+		box-shadow: none;
+	}
+
+	&::placeholder, & {
+		padding-top: 1em;
+		font-size: rem(24);
+		font-family: 'League Spartan';
+		text-transform: uppercase;
+		color: $color-black;
+
+		@include breakpoint(desktop) {
+			font-size: rem(36);
+		}
+	}
+}

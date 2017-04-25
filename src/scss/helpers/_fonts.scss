@@ -1,0 +1,37 @@
+// @mixin font($filename, $family, $weight:'normal', $style:'normal') {
+//   @font-face {
+//     font-family: $family;
+//     src: url('../fonts/#{$filename}.eot'); /* IE9 Compat Modes */
+//     src: url('../fonts/#{$filename}.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+//          url('../fonts/#{$filename}.woff2') format('woff2'),
+//          url('../fonts/#{$filename}.woff') format('woff'), /* Pretty Modern Browsers */
+//          url('../fonts/#{$filename}.ttf') format('truetype'),
+//          url('../fonts/#{$filename}.svg##{$filename}') format('svg');
+//     font-weight: $weight;
+//     font-style: $style;
+//   }
+// }
+
+@include font('LeagueSpartan-Bold', 'League Spartan', 'bold');
+@include font('Pacifico', 'Pacifico');
+@include font('OpenSans-Regular', 'Open Sans');
+
+
+//CourierPrime
+// @include font('CourierPrime', 'CourierPrime');
+// @include font('CourierPrime-Bold', 'Courier Prime', 'bold');
+// @include font('CourierPrime-Italic', 'Courier Prime', 'normal', 'italic');
+// @include font('CourierPrime-BoldItalic', 'Courier Prime', 'bold', 'italic');
+//Montserat
+@include font('Montserrat-Thin', 'Montserrat', 100);
+@include font('Montserrat-ExtraLight', 'Montserrat', 200);
+@include font('Montserrat-Light', 'Montserrat', 300);
+@include font('Montserrat-Regular', 'Montserrat');
+@include font('Montserrat-Medium', 'Montserrat', 500);
+@include font('Montserrat-SemiBold', 'Montserrat', 600);
+@include font('Montserrat-Bold', 'Montserrat', bold);
+@include font('Montserrat-ExtraBold', 'Montserrat', 800);
+@include font('Montserrat-Black', 'Montserrat', 900);
+
+//Icomoon
+@import "icomoon";

@@ -1,0 +1,64 @@
+.hero {
+	height: 415px;
+	width: 100%;
+	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero.jpg') 0 0 / cover no-repeat;
+
+	@include breakpoint(tablet) {
+		background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero.jpg') 0 -55px / cover no-repeat;
+	}
+
+	@include breakpoint(desktop) {
+		background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero.jpg') 0 -150px / cover no-repeat;
+	}
+
+	@include breakpoint(l-desktop) {
+		background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero.jpg') 0 35% / cover no-repeat;
+	}
+
+	@include breakpoint(xl-desktop) {
+		background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero.jpg') 0 40% / cover no-repeat;
+	}
+
+	@include breakpoint(xxl-desktop) {
+		background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero.jpg') 0 50% / cover no-repeat;
+	}
+
+	&-wrap {
+		position: relative;
+		height: 100%;
+	}
+
+	&-text {
+		font-family: 'League Spartan';
+		color: $color-white;
+		text-align: center;
+		padding-top: 95px;
+
+	    h1 {
+			letter-spacing: 1.5px;
+			margin-bottom: 0;
+
+			@include breakpoint(tablet) {
+				font-size: em(48)
+			}
+	    }
+
+	    h2 {
+	    	font-family: Montserrat;
+	    	letter-spacing: 0.5px;
+	    }
+
+	    .dev-text {
+	    	font-family: 'Courier';
+	    	font-size: 1.75rem;
+	    	letter-spacing: 0;
+	    }
+
+	    .des-text {
+	    	font-family: 'Pacifico';
+	    	font-size: 1.65rem;
+	    	letter-spacing: 0.75px;
+	    	padding-right: 3px;
+	    }
+	}
+}

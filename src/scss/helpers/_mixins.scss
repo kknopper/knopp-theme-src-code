@@ -1,0 +1,168 @@
+//	KRAKEN MIXIN REFERENCE
+//	MIXINS & FUNCTIONS
+//
+//	A few simple Sass helpers.
+//
+
+// @font-face mixin
+// Order of the includes matters, and it is: normal, bold, italic, bold+italic.
+// Forked from Bourbon. https://github.com/thoughtbot/bourbon/
+// @mixin font-face($font-family, $file-path, $weight: normal, $style: normal) {
+// 	@font-face {
+// 		font-family: $font-family;
+// 		font-weight: $weight;
+// 		font-style: $style;
+
+// 		src: url('#{$file-path}.eot');
+// 		src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'),
+// 		     url('#{$file-path}.woff') format('woff'),
+// 		     url('#{$file-path}.ttf') format('truetype'),
+// 		     url('#{$file-path}.svg##{$font-family}') format('svg');
+// 	}
+// }
+
+// // Strip units from values
+// @function strip-unit($num) {
+//   @return $num / ($num * 0 + 1);
+// }
+
+// // Calculate ems from pixels
+// @function calc-em($px, $base: 16) {
+// 	$px: strip-unit($px);
+// 	$base: strip-unit($base);
+// 	@if $px == 1 {
+// 		@return 1px;
+// 	}
+// 	@return ($px / $base) * 1em;
+// }
+
+// Breakpoints
+// $bp-xsmall: 20em;
+// $bp-small: 30em;
+// $bp-medium: 40em;
+// $bp-large: 60em;
+// $bp-xlarge: 80em;
+// $bp-xxlarge: 90em;
+// $bp-xxxlarge: 90em;
+
+//desktop: 960
+//tablet: 640
+@mixin breakpoint($point) {
+  @if $point == xxl-desktop {
+    @media (min-width: $bp-xxxlarge) { @content; }
+  } @else if $point == xl-desktop {
+    @media (min-width: $bp-xxlarge) { @content; }
+  } @else if $point == l-desktop {
+    @media (min-width: $bp-xlarge) { @content; }
+  } @else if $point == desktop {
+    @media (min-width: $bp-large)  { @content; }
+  } @else if $point == tablet {
+    @media (min-width: $bp-medium)  { @content; }
+  } @else if $point == mobile {
+    @media (min-width: $bp-small)  { @content; }
+  } @else if $point == s-mobile {
+    @media (min-width: $bp-xsmall)  { @content; }
+  } @else {
+    @media (min-width: #{$point})  { @content; }
+  }
+}
+
+
+// Size of div based on the ratio of image
+@mixin panel($width, $height) {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  max-width: 100%;
+
+  &:after {
+    padding-top: $height / $width * 100%;
+    content: '';
+    display: block;
+  }
+}
+
+
+// MAKE IFRAMES RESPONSIVE - ratio of embed container (youtube default is 16:9)
+@mixin embed-container($width:16, $height:9) {
+  position: relative;
+  padding-bottom: $height / $width * 100%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+
+  iframe, object, embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@mixin background-sprite($icon, $set-dimensions: false) {
+  @extend %#{$icon}-background;
+
+  @if $set-dimensions == true {
+    @extend %#{$icon}-dimensions;
+  }
+}
+
+@mixin transform-center($position:'') {
+  @if($position == 'vertical') {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  } @else if($position == 'horizontal') {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  } @else {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@mixin transform-reset() {
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  padding: 0 15px;
+  margin: 1em auto;
+  position: static;
+  text-align: center;
+  transform: translate(0, 0);
+}
+
+@function em($pixels) {
+  @return #{$pixels/16}em
+}
+
+@function rem($pixels) {
+  @return #{$pixels/16}rem
+}
+
+@mixin font($filename, $family, $weight:'normal', $style:'normal', $url:'../fonts/') {
+  @font-face {
+    font-family: $family;
+    src: url('#{$url}#{$filename}.eot'); /* IE9 Compat Modes */
+    src: url('#{$url}#{$filename}.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('#{$url}#{$filename}.woff2') format('woff2'),
+         url('#{$url}#{$filename}.woff') format('woff'), /* Pretty Modern Browsers */
+         url('#{$url}#{$filename}.ttf') format('truetype'),
+         url('#{$url}#{$filename}.svg##{$filename}') format('svg');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+@mixin clearfix() {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

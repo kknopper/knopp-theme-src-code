@@ -1,0 +1,35 @@
+.about-page {
+	text-align: center;
+
+    h3 {
+        margin-bottom: rem(12);
+    }
+
+    hr {
+        height: 3px;
+        margin: 0;
+        margin-bottom: rem(20);
+    }
+}
+
+.education-icon, .occupation-icon {
+	max-width: 50px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.icon-wrap {
+	border-radius: 50%;
+	height: 100px;
+	width: 100px;
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	border: 5px solid $color-tertiary;
+
+	svg {
+		@include transform-center();
+	}
+}

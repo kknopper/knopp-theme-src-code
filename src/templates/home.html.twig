@@ -1,0 +1,37 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+    
+	<section class="home-page container">
+		{{ page.content }}
+
+		<div class="row">
+			<div class="grid-full">
+				<h3 class="theme-color">Recent Work</h3>
+				<hr class="theme-color-bg-secondary">
+			</div>
+			
+			<ul class="portfolio-grid">
+			    {% for portfolio in page.collection %}
+					{% include 'partials/portfolio_item.html.twig' with {'page':portfolio, 'truncate':true} %}
+				{% endfor %}
+			</ul>
+		</div>
+		<div class="row">
+			<div class="grid-full">
+				<h3 class="theme-color">Recent Posts</h3>
+				<hr class="theme-color-bg-secondary">
+			</div>
+			<div class="blog-container grid-full">
+				{% for blog in page.collection('blog') %}
+					{% include 'partials/blog_article.html.twig' with {'page':blog, 'truncate':true} %}
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+	<div class="overlay theme-color-bg-secondary">
+		<i class="overlay-close fa fa-close theme-color-secondary"></i>
+		<div class="overlay-content"></div>
+	</div>
+	
+{% endblock %}

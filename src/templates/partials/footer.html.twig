@@ -1,0 +1,46 @@
+
+<footer role="navigation" class="footer theme-color-bg">
+    <div class="footer-logo-wrap">
+        <div class="footer-logo theme-color-bg">
+            <!-- <img class="theme-color-bg" src="{{ theme_url }}/images/mii.png" alt="mii"> -->
+        </div>
+    </div>
+    <nav class="footer-container">
+        <ul class="footer-share">
+            <li>
+                <a href="https://dribbble.com/kknopper" target="_blank"><i class="icon-dribbble"></i></a>
+            </li>
+            <li>
+                <a href="https://github.com/kknopper" target="_blank"><i class="icon-github"></i></a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/kknopper/" target="_blank"><i class="icon-linkedin"></i></a>
+            </li>
+            <li>
+                <a href="https://www.facebook.com/kknopper" target="_blank"><i class="icon-facebook"></i></a>
+            </li>
+            <li>
+                <a href="#" target="_blank"><i class="icon-twitter"></i></a>
+            </li>
+            <li>
+                <a href="#" target="_blank"><i class="icon-email"></i></a>
+            </li>
+            <li>
+                <a href="#" target="_blank"><i class="icon-rss"></i></a>
+            </li>
+        </ul><!--
+        --><ul class="footer-links">
+            {% for page in pages.children %}
+            {% if page.visible %}
+            {% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
+                {% if page.menu != 'Home' %}{# hide home link #}
+                    <li class="{{ current_page }}"><a href="{{ page.url }}">{{ page.menu }}</a></li>
+                {% endif %}
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </nav>
+    <div class="footer-legal">
+        &copy; Kevin Knopp {{ 'now'|date('Y') }}
+    </div>
+</footer>

@@ -1,0 +1,25 @@
+name: Knopp-theme
+version: 1.0.0
+description: "Knopp-theme is a personal theme created by Kevin Knopp"
+icon: empire
+author:
+  name: Kevin Knopp
+  email: kknopper@gmail.com
+  url: http://kevinknopp.com
+homepage: https://github.com/kknopper
+keywords: orange, theme, core, modern, fast, responsive, html5, css3
+license: MIT
+
+form:
+  validation: loose
+  fields:
+    dropdown.enabled:
+        type: toggle
+        label: Dropdown in navbar
+        highlight: 1
+        default: 1
+        options:
+          1: Enabled
+          0: Disabled
+        validate:
+          type: bool

@@ -1,0 +1,29 @@
+.home-page {
+	
+	h3 {
+		margin-bottom: rem(12);
+	}
+
+	.blog-container {
+		.blog-header {
+			hr {
+				display: none;
+			}
+
+			h3 {
+				font-family: 'Montserrat';
+				font-weight: 500;
+				text-transform: capitalize;
+				padding-top: 0;
+
+				a {
+					color: $color-black;
+				}
+
+				time {
+					color: $color-primary;
+				}
+			}
+		}
+	}
+}

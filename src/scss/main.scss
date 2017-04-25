@@ -1,0 +1,23 @@
+@import "helpers/mixins";
+@import "helpers/fonts";
+//Kraken w/ normalize
+@import "kraken/main";
+@import "node_modules/font-awesome/scss/font-awesome.scss";
+@import"global";
+
+
+//Components
+body {
+	@import "components/header";
+	@import "components/hero";
+	@import "components/footer";
+	@import "components/home";
+	@import "components/about";
+	@import "components/portfolio";
+	@import "components/blog";
+	@import "components/blog-article";
+	@import "components/blog-search";
+	@import "components/sidebar";
+	@import "components/modal";
+	@import "components/buttons";
+}

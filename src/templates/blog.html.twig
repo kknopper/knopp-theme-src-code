@@ -1,0 +1,28 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+	<section class="blog-container container">
+		<div class="row">
+			<div class="blog-list grid-two-thirds">
+				{% set collection = page.collection() %}
+
+				{% for child in collection %}
+				    {% include 'partials/blog_article.html.twig' with {'page':child, 'truncate':true} %}
+				{% endfor %}
+			</div>
+
+			<aside class="sidebar grid-third">
+				{% include 'partials/sidebar.html.twig' with {'blog':page.parent}%}
+			</aside>
+		</div>
+
+		{# Render the pagination list #}
+		{% if config.plugins.pagination.enabled and collection.params.pagination %}
+		    {% include 'partials/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
+		{% endif %}
+		
+	</section>
+
+	
+    
+{% endblock %}

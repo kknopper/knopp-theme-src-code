@@ -1,0 +1,89 @@
+.circle-overlay {
+	z-index: 2;
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+	opacity: 0;
+	z-index: 3;
+	transition: all 0.3s;
+
+	&-close {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		font-size: 1.5em;
+		width: 35px;
+		height: 35px;
+		border-radius: 50%;
+		background-color: $color-white;
+		text-align: center;
+		cursor: pointer;
+
+		&:before {
+			@include transform-center();
+			top: 45%;
+		}
+	}
+
+	&-content {
+		height: 100%;
+		width: 100%;
+    	overflow-y: auto;
+	}
+
+	&.active {
+		opacity: 1;
+		visibility: visible;
+		transition-delay: 1s;
+	}
+
+
+	.portfolio-piece-expansion-inner {
+		figure {
+			
+		}
+
+		h3 {
+			font-size: rem(25);
+			color: $color-white;
+			text-align: center;
+			// margin-bottom: 0;
+			margin-top: 3.5em;
+
+			@include breakpoint(desktop) {
+				font-size: rem(48);
+				margin-bottom: 0;
+				margin-top: 1.5em;
+			}
+		}
+
+		p {
+			font-size: rem(24);
+			color: $color-white;
+			// text-align: center;
+			padding: 20px;
+    		margin: 0 auto 1.5625em;
+
+    		@include breakpoint(desktop) {
+    			max-width: 75%;
+    		}
+		}
+
+		img {
+			width: 100%;
+			max-width: none;
+			display: block;
+			margin: 0 auto;
+
+			@include breakpoint(desktop) {
+				max-width: 75%;
+			}
+		}
+	}
+}
