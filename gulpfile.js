@@ -164,4 +164,4 @@ gulp.task('watch', function() {
 //gulp dev cmd
 gulp.task('dev', function() {
 	runSequence('server', 'watch')
-});
+}); 
