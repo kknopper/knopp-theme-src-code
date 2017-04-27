@@ -77,11 +77,11 @@ gulp.task('blueprints', function() {
 })
 
 gulp.task('grav-theme-files', function() {
-	gulp.src(conf.src + 'blueprints.yaml')
+	gulp.src(conf.src.root + 'blueprints.yaml')
 		.pipe(gulp.dest(conf.dist.root));
-	gulp.src(conf.src + 'knopp-theme.yaml')
+	gulp.src(conf.src.root + 'knopp-theme.yaml')
 		.pipe(gulp.dest(conf.dist.root));
-	gulp.src(conf.src + 'knopp-theme.php')
+	gulp.src(conf.src.root + 'knopp-theme.php')
 		.pipe(gulp.dest(conf.dist.root));
 })
 
