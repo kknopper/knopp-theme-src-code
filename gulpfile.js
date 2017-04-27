@@ -25,7 +25,7 @@ gulp.task('js', function() {
 			module: {
 				loaders: [{
 					loader: 'babel-loader',
-					exlude: /node_modules/,
+					exclude: /node_modules/,
 					query: {
 						plugins: ['transform-runtime'],
 						presets: ['es2015']

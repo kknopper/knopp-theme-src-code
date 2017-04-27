@@ -33,4 +33,5 @@ $(document).ready(function() {
 	
 	grid();
 	konami();
+	$('body').addClass('thanksgiving');
 });

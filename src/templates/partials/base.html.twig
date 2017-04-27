@@ -1,5 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+
+{% set currentDate = 'now'|date('m/d') %}
+{% if currentDate == '03/17' %}
+    {% set currentHoliday = 'st-pattys' %}
+{% elseif currentDate == '04/01' %}
+    {% set currentHoliday = 'easter' %}
+{% elseif currentDate == '05/05' %}
+    {% set currentHoliday = 'cinco-de-mayo' %}
+{% elseif currentDate == '11/23' %}
+    {% set currentHoliday = 'thanksgiving' %}
+{% endif %}    
+<html lang="en" class='{{currentHoliday}}'>
     <head>
         {% block head %}
         <meta charset="utf-8">

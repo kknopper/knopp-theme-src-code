@@ -111,5 +111,50 @@
 		&:hover {
 			background-position: 60% -120px;
 		}
+
+		.thanksgiving & {
+			background-image: url('../images/mii-thanksgiving.png');
+			background-position: 1px 5px;
+
+			&:hover {
+				background-position: 1px -120px;
+			}
+		}
+
+		.st-pattys & {
+			background-image: url('../images/mii-st-pattys.png');
+			background-position: 0 5px;
+
+			&:hover {
+				background-position: 0 -120px;
+			}
+		}
+
+		.cinco-de-mayo & {
+			background-image: url('../images/mii-cinco-de-mayo.png');
+			background-position: 0 5px;
+
+			&:hover {
+				background-position: 0 -120px;
+			}
+		}
+
+		.easter & {
+			background-image: url('../images/mii-easter.png');
+			background-position: 0 5px;
+
+			&:hover {
+				background-position: 0 -120px;
+			}
+		}
+
+		.halloween & {
+			background-image: url('../images/mii-halloween.png');
+			background-position: 0 5px;
+
+			&:hover {
+				background-position: 0 -120px;
+			}
+		}
 	}
 }
