@@ -1,0 +1,22 @@
+{
+    "src": {
+        "root": "./src/",
+	    "html": "./src/templates/**/*.twig",
+	    "js": "./src/js/main.js",
+	    "scss": "./src/scss/**/*.scss",
+	    "fonts": "./src/fonts/**/*",
+	    "imgs": "./src/images/**/*",
+	    "docs": "./src/documents/**/*",
+        "blueprints": "./src/blueprints/*.yaml"
+    },
+    "dist": {
+        "root": "../grav/target/user/themes/knopp-theme/",
+	    "html": "../grav/target/user/themes/knopp-theme/templates",
+	    "js": "../grav/target/user/themes/knopp-theme/js/",
+	    "css": "../grav/target/user/themes/knopp-theme/css/",
+	    "fonts": "../grav/target/user/themes/knopp-theme/fonts/",
+	    "imgs": "../grav/target/user/themes/knopp-theme/images/",
+	    "docs": "../grav/target/user/themes/knopp-theme/documents/",
+        "blueprints": "../grav/target/user/themes/knopp-theme/blueprints/"
+    }
+}
