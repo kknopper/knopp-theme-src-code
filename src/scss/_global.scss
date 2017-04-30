@@ -28,6 +28,10 @@ h3 {
 	font-family: 'League Spartan';
 	font-size: em(36);
 	text-transform: uppercase;
+
+	a {
+		font-weight: normal;
+	}
 }
 
 h4 {
@@ -43,6 +47,8 @@ hr {
 }
 
 a {
+	font-weight: 400;
+
 	&:hover, &:active, &:focus {
 		text-decoration: none;
 	}
@@ -51,6 +57,10 @@ a {
 p, ul, li, body {
 	font-weight: normal;
 	font-family: 'Montserrat';
+}
+
+p, article {
+	font-weight: 300;
 }
 
 main {

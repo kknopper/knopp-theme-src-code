@@ -9,26 +9,28 @@
     <nav class="footer-container">
         <ul class="footer-share">
             <li>
-                <a href="https://dribbble.com/kknopper" target="_blank"><i class="icon-dribbble"></i></a>
+                <a href="https://dribbble.com/kknopper/" target="_blank"><i class="icon-dribbble"></i></a>
             </li>
             <li>
-                <a href="https://github.com/kknopper" target="_blank"><i class="icon-github"></i></a>
+                <a href="https://github.com/kknopper/" target="_blank"><i class="icon-github"></i></a>
             </li>
             <li>
                 <a href="https://www.linkedin.com/in/kknopper/" target="_blank"><i class="icon-linkedin"></i></a>
             </li>
             <li>
-                <a href="https://www.facebook.com/kknopper" target="_blank"><i class="icon-facebook"></i></a>
+                <a href="https://www.facebook.com/kknopper/" target="_blank"><i class="icon-facebook"></i></a>
             </li>
             <li>
-                <a href="#" target="_blank"><i class="icon-twitter"></i></a>
+                <a href="https://www.instagram.com/kknopper/" target="_blank"><i class="icon-instagram"></i></a>
             </li>
             <li>
-                <a href="#" target="_blank"><i class="icon-email"></i></a>
+                <a href="mailto:kknopper@gmail.com" target="_blank"><i class="icon-email"></i></a>
             </li>
+            {% if config.plugins.feed.enabled %}
             <li>
-                <a href="#" target="_blank"><i class="icon-rss"></i></a>
+                <a href="{{ feed_url }}.rss" target="_blank"><i class="icon-rss"></i></a>
             </li>
+            {% endif %}
         </ul>
         <ul class="footer-links">
             {% for page in pages.children %}
