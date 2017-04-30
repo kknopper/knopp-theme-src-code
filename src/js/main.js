@@ -5,6 +5,7 @@ import MobileDetect from 'mobile-detect'
 import { debug } from "./modules/debug";
 import { grid } from "./modules/grid";
 import { konami } from "./modules/konami-code";
+import { footer } from "./modules/footer";
 
 
 $(document).ready(function() {
@@ -32,6 +33,6 @@ $(document).ready(function() {
 	})
 	
 	grid();
-	konami();
-	$('body').addClass('thanksgiving');
+	footer()
+	konami();	
 });

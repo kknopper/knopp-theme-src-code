@@ -8,7 +8,8 @@
 		color: $color-white;
 		font-family: Montserrat;
 		font-size: 0.85em;
-		letter-spacing: 1.5px;
+		letter-spacing: 1px;
+		line-height: 30px;
 	}
 
 	&-container {
@@ -42,17 +43,28 @@
 
 	&-links {
 		display: none;
+
+		.active {
+			background-color: white;
+      		border-radius: 5em;
+		}
 	}
 
 	&-share, &-links {
 		width: auto;
 		margin: 0;
 		vertical-align: top;
+		
+		@include breakpoint(tablet) {
+			// padding: 10px;
+		}
 
 		@include breakpoint(desktop) {
 			width: auto;
 			margin-top: 20px;
 			display: inline-flex;
+			// height: 25px;
+			padding: 10px 0;
 		}
 
 		li {
@@ -61,7 +73,7 @@
 			padding: 10px 7px;
 
 			@include breakpoint(tablet) {
-				padding: 10px;
+				padding: 0px 15px;
 			}
 		}
 	}
@@ -77,6 +89,45 @@
 		}
 	}
 
+	&-text-bubble {
+		position: absolute;
+		width: 250px;
+		height: auto;
+		min-height: 45px;
+		padding: 10px;
+		border-radius: 7px;
+		left: 50%;
+    	bottom: 115px;
+    	z-index: 2;
+    	transform: translateX(-51%);
+    	opacity: 0;
+    	transition: 0.3s;
+
+    	&.active {
+    		opacity: 1;
+    		bottom: 125px;
+    	}
+
+		&:after {
+			content: '';
+			position: absolute;
+			border-style: solid;
+			border-width: 15px 15px 0;
+			border-color: #FFFFFF transparent;
+			display: block;
+			width: 0;
+			z-index: 1;
+			bottom: -15px;
+			left: 110px;
+		}
+
+		p {
+			text-align: center;
+			color: $color-white;
+			margin: 0;
+		}
+	}
+		
 	&-logo {
 		display: block;
 		width: 100px;

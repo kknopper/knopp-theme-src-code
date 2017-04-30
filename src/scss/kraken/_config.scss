@@ -23,14 +23,15 @@ $color-secondary: #72B542;
 $color-secondary: #65C18D;
 $color-secondary: #477998;
 // $color-secondary: #588B8B;
-// $color-secondary: #002642;
+// $color-secondary: # 002642;
 // $color-secondary: #0D1F2D;
 $color-tertiary: #72B542;
 $color-black: #272727;
 $color-white: #ffffff;
 
-$konami-primary: #08B2E3;
-$konami-secondary: #588B8B;
+$konami-primary: #009C7E;
+$konami-primary: #72B542;
+$konami-secondary: #F06925;
 $konami-tertiary: $color-primary;
 
 $color-info: #0088cc; // Blue
@@ -45,11 +46,21 @@ $color-gray-light: #e5e5e5;
 //Theme color config
 .theme-color {
 	color: $color-primary;
-	transition: color 2s ease-in-out;
+	
+	&.transition {
+		transition: color 2s ease-in-out;
+	}
+
+	.konami & {
+		color: $konami-primary;
+	}
 
 	&-secondary {
 		color: $color-secondary;
-		transition: color 2s ease-in-out;
+		
+		&.transition{
+			transition: color 2s ease-in-out;
+		}
 
 		.konami & {
 			color: $konami-secondary;
@@ -58,7 +69,10 @@ $color-gray-light: #e5e5e5;
 
 	&-tertiary {
 		color: $color-tertiary;
-		transition: color 2s ease-in-out;
+		
+		&.transition{
+			transition: color 2s ease-in-out;
+		}
 
 		.konami & {
 			color: $konami-tertiary;
@@ -73,23 +87,45 @@ $color-gray-light: #e5e5e5;
 .theme-color-bg {
 	background-color: $color-primary;
 	fill: $color-primary;
-	transition: background-color 2s ease-in-out, fill 2s ease-in-out;
+	
+	&.transition{
+		transition: background-color 2s ease-in-out, fill 2s ease-in-out;
+	}
 
 	&-secondary {
 		background-color: $color-secondary;
 		fill: $color-secondary;
-		transition: background-color 2s ease-in-out, fill 2s ease-in-out;
+		
+		&.transition{
+			transition: background-color 2s ease-in-out, fill 2s ease-in-out;
+		}
 
 		.konami & {
 			background-color: $konami-secondary;
 			fill: $konami-secondary;
+		}
+		
+		//For Footer text bubbles
+		&.footer-text-bubble:after {
+			border-color: $color-secondary transparent;
+
+			&.transition {
+				transition: border-color 2s ease-in-out,
+			}
+
+			.konami & {
+				border-color: $konami-secondary transparent;
+			}
 		}
 	}
 
 	&-tertiary {
 		background-color: $color-tertiary;
 		fill: $color-tertiary;
-		transition: all 2s ease-in-out;
+		
+		&.transition{
+			transition: all 2s ease-in-out;
+		}
 
 		.konami & {
 			background-color: $konami-tertiary;
@@ -103,10 +139,53 @@ $color-gray-light: #e5e5e5;
 	}
 }
 
+.theme-color-border {
+	border: 5px solid $color-primary;
+	
+	&.transition {
+		transition: border 2s ease-in-out;
+	}
+
+	.konami & {
+		border:  5px solid $konami-primary;
+	}
+
+	&-secondary {
+		border: 5px solid $color-secondary;
+		
+		&.transition{
+			transition: border 2s ease-in-out;
+		}
+
+		.konami & {
+			border: 5px solid $konami-secondary;
+		}
+	}
+
+	&-tertiary {
+		border: 5px solid $color-tertiary;
+		
+		&.transition{
+			transition: border 2s ease-in-out;
+		}
+
+		.konami & {
+			border: 5px solid $konami-tertiary;
+		}
+	}
+
+	.konami & {
+		color: $konami-primary;
+	}
+}
+
 .theme-color-box-shadow-footer {
 	&:after {
 		box-shadow: 0px 50000px 0px 50000px $color-primary;
-		transition: box-shadow 2s ease-in-out;
+		
+		&.transition{
+			transition: box-shadow 2s ease-in-out;
+		}
 
 		.konami & {
 			box-shadow: 0px 50000px 0px 50000px $konami-primary;
@@ -116,7 +195,10 @@ $color-gray-light: #e5e5e5;
 	&-secondary {
 		&:after{
 			box-shadow: 0px 50000px 0px 50000px $color-secondary;
-			transition: box-shadow 2s ease-in-out;
+			
+			&.transition{
+				transition: box-shadow 2s ease-in-out;
+			}
 
 			.konami & {
 				box-shadow: 0px 50000px 0px 50000px $konami-secondary;
@@ -127,11 +209,51 @@ $color-gray-light: #e5e5e5;
 	&-tertiary {
 		&:after {
 			box-shadow: 0px 50000px 0px 50000px $color-tertiary;
-			transition: box-shadow 2s ease-in-out;
+			
+			&.transition{
+				transition: box-shadow 2s ease-in-out;
+			}
 
 			.konami & {
 				box-shadow: 0px 50000px 0px 50000px $konami-tertiary;
 			}
+		}
+	}
+}
+
+//header footer active link colors
+.header .active .theme-color, .footer .active .theme-color {
+	color: $color-primary;
+	
+	&.transition {
+		transition: color 2s ease-in-out;
+	}
+
+	.konami & {
+		color: $konami-primary;
+	}
+
+	&-secondary {
+		color: $color-secondary;
+		
+		&.transition{
+			transition: color 2s ease-in-out;
+		}
+
+		.konami & {
+			color: $konami-secondary;
+		}
+	}
+
+	&-tertiary {
+		color: $color-tertiary;
+		
+		&.transition{
+			transition: color 2s ease-in-out;
+		}
+
+		.konami & {
+			color: $konami-tertiary;
 		}
 	}
 }

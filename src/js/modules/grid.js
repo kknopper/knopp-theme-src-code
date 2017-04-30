@@ -11,7 +11,7 @@ imagesLoaded.makeJQueryPlugin($);
 
 function grid() {
 	let $grid = $('.portfolio-grid'),
-	$gridItemImg = $('.portfolio-piece img'),
+	  $gridItemImg = $('.portfolio-piece img'),
     $gridItem = $('.portfolio-piece'),
     $gridExpansions = $('.portfolio-piece-expansion'),
     $overlayClose = $('.overlay-close'),
@@ -74,6 +74,16 @@ function grid() {
 
         $gridItem.click(function(e) {
             e.preventDefault();
+
+            //adjust colors
+            if ($('html').hasClass('konami')) {
+              debug('konami active');
+              console.log('konami active');
+              fillColor = $('.theme-color-bg-secondary').css('background-color');
+              circleOverlay.tune({ fill: fillColor })
+            }
+
+
             //remove currecnt active states
             $gridItem.removeClass('active');
             $(this).addClass('active-animations');
@@ -98,19 +108,19 @@ function grid() {
 
         });
 
-         $overlayClose.click(function() {
-            recalcCircleCenter(false);
-            $gridItem.removeClass('active');
-            $overlay.removeClass('active')
-            $overlayContent.html('');
-            $html.removeClass('noscroll');
-            
-            //Wait for animatins to end based off css transtions
-            //removes class so transtions dont conflict with mixitup transitions
-            setTimeout(function() {
-                debug('remove after complete animtion')
-                $gridItem.removeClass('active-animations');
-            }, 1000)
+        $overlayClose.click(function() {
+          recalcCircleCenter(false);
+          $gridItem.removeClass('active');
+          $overlay.removeClass('active')
+          $overlayContent.html('');
+          $html.removeClass('noscroll');
+          
+          //Wait for animatins to end based off css transtions
+          //removes class so transtions dont conflict with mixitup transitions
+          setTimeout(function() {
+              debug('remove after complete animtion')
+              $gridItem.removeClass('active-animations');
+          }, 1000)
         });
 
         
