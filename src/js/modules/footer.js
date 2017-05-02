@@ -45,8 +45,11 @@ export function footer() {
 	    case 'st-pattys':
 	        phrases = ["Happy St. Patrick's Day!", "Feeling Lucky?", "Don't Pinch Me!", "They're after me lucky charms!", "Cheers!"]
 	        break;
+	    case 'valentines':
+	        phrases = ["Who is the fairest of them all?", "I'm single ;)?", "I love you too", "You had me at hello."]
+	        break;
 	    default:
-	        phrases = ["Hi there!", "That tickles!", "Boo!", "What's up?"]
+	        phrases = ["Hi there!", "That tickles!", "What's up?", "The cake is a lie.", "I know kung fu", "Life is like a box of chocolates", "Wax on, Wax off.", "Elementary, my dear Watson.", "That'll do pig, that'll do.", "Say hello to my little friend", "Why so serious?", "As you wish", "Are you not entertained?", "Click me again", "The names Knopp. Kevin Knopp.", "There's no place like home", "May the force be with you", "Great Scott!", "Where we're going, we don't need roads.", "The princess is in another castle!"]
 	}
 
 	
