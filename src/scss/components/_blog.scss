@@ -62,18 +62,27 @@
 
 	//H4
 	&-list-date {
-		font-size: rem(15);
+		font-size: rem(18);
+		font-family: 'Montserrat';
+		font-weight: 600;
+		// text-transform: capitalize;
 		color: $color-black;
 		order: 1;
 		display: block;
 
 		@include breakpoint($bp-medium-large) {
-			font-size: rem(12);
 			order: 2;
 		}
 
 		@include breakpoint(desktop) {
-			font-size: rem(20);
+			font-size: rem(24);
+		}
+	}
+
+	//time
+	&-published {
+		em {
+			font-style: normal;
 		}
 	}
 

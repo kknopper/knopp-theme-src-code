@@ -44,6 +44,7 @@
     color: $color-white;
     display: block;
     font-family: Montserrat;
+    letter-spacing: 1px;
     // text-transform: uppercase;
   }
 
@@ -95,6 +96,14 @@ nav.container {
     transition-delay: 0s;
 
     &:first-child {
+      display: none;
+
+      @include breakpoint(tablet) {
+        display: block;
+      }
+    }
+
+    &:nth-child(2) {
       margin-top: 63px;
 
       @include breakpoint(tablet) {
@@ -109,12 +118,22 @@ nav.container {
     }
 
     &.active {
-      // border-bottom: 2px solid $color-white;
-      background-color: white;
       border-radius: 5em;
+
+      @include breakpoint(tablet) {
+        background-color: $color-white;
+      }
       
       a {
-        color: $color-primary;
+        display: inline-block;
+        background: $color-white;
+        padding: 0 15px;
+        border-radius: 5em;
+
+        @include breakpoint(tablet) {
+          padding: 0;
+          background-color: inherit;
+        }
       }
     }
   }

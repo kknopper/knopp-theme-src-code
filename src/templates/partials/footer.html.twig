@@ -1,6 +1,7 @@
 
 <footer role="navigation" class="footer theme-color-bg">
     <div class="footer-logo-wrap">
+        <div class="footer-text-bubble theme-color-bg-secondary"></div>
         <div class="footer-logo theme-color-bg">
             <!-- <img class="theme-color-bg" src="{{ theme_url }}/images/mii.png" alt="mii"> -->
         </div>
@@ -8,33 +9,42 @@
     <nav class="footer-container">
         <ul class="footer-share">
             <li>
-                <a href="https://dribbble.com/kknopper" target="_blank"><i class="icon-dribbble"></i></a>
+                <a href="https://dribbble.com/kknopper/" target="_blank"><i class="icon-dribbble"></i></a>
             </li>
             <li>
-                <a href="https://github.com/kknopper" target="_blank"><i class="icon-github"></i></a>
+                <a href="https://github.com/kknopper/" target="_blank"><i class="icon-github"></i></a>
             </li>
             <li>
                 <a href="https://www.linkedin.com/in/kknopper/" target="_blank"><i class="icon-linkedin"></i></a>
             </li>
             <li>
-                <a href="https://www.facebook.com/kknopper" target="_blank"><i class="icon-facebook"></i></a>
+                <a href="https://www.facebook.com/kknopper/" target="_blank"><i class="icon-facebook"></i></a>
             </li>
             <li>
-                <a href="#" target="_blank"><i class="icon-twitter"></i></a>
+                <a href="https://www.instagram.com/kknopper/" target="_blank"><i class="icon-instagram"></i></a>
             </li>
             <li>
-                <a href="#" target="_blank"><i class="icon-email"></i></a>
+                <a href="mailto:kknopper@gmail.com" target="_blank"><i class="icon-email"></i></a>
             </li>
+            {% if config.plugins.feed.enabled %}
             <li>
-                <a href="#" target="_blank"><i class="icon-rss"></i></a>
+                <a href="/blog.rss" target="_blank"><i class="icon-rss"></i></a>
             </li>
-        </ul><!--
-        --><ul class="footer-links">
+            {% endif %}
+        </ul>
+        <ul class="footer-links">
             {% for page in pages.children %}
             {% if page.visible %}
             {% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
-                {% if page.menu != 'Home' %}{# hide home link #}
-                    <li class="{{ current_page }}"><a href="{{ page.url }}">{{ page.menu }}</a></li>
+            {% set current_page_color = (page.active or page.activeChild) ? 'theme-color' : '' %}
+                {% if page.menu != 'Home' %}
+                    <li class="{{ current_page }}">
+                        <a href="{{ page.url }}" class="{{ current_page_color }}">{{ page.menu }}</a>
+                    </li>
+                {% else %}{# home link #}
+                    <li class="{{ current_page }}">
+                        <a href="/home"><i class='fa fa-home {{current_page_color}}'></i></a>
+                    </li>
                 {% endif %}
             {% endif %}
             {% endfor %}

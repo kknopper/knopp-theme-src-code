@@ -27,7 +27,7 @@
 	display: block;
 	margin: 0 auto;
 	position: relative;
-	border: 5px solid $color-tertiary;
+	// border: 5px solid $color-tertiary;
 
 	svg {
 		@include transform-center();
