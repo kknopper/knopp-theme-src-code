@@ -43,7 +43,11 @@
                 {% if config.plugins.readingtime.enabled %}
                     <div class='blog-reading-time'>
                         <i class='fa fa-clock-o' aria-hidden='true'></i>
-                        {{ page.content|readingtime({'format': '{minutes_short_count} min'}) }}
+                        {% if page.content|readingtime({'format': '{minutes_short_count}'}) != 0 %}
+                            {{ page.content|readingtime({'format': '{minutes_short_count} min'}) }}
+                        {% else %}
+                            {{ page.content|readingtime({'format': '{seconds_short_count} {seconds_text}'}) }}
+                        {% endif %}
                     </div>
                     
                 {% endif %}

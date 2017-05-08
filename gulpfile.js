@@ -14,7 +14,8 @@ var gulp = require('gulp'),
  	source = require('vinyl-source-stream'),
  	buffer = require('vinyl-buffer'),
  	htmlInjector = require('bs-html-injector'),
- 	webpack = require('gulp-webpack')
+ 	webpack = require('gulp-webpack'),
+	LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
  	browserSync = require('browser-sync').create();
 var conf = require('./config.json');
 
@@ -27,11 +28,14 @@ gulp.task('js', function() {
 					loader: 'babel-loader',
 					exclude: /node_modules/,
 					query: {
-						plugins: ['transform-runtime'],
+						plugins: ['transform-runtime', 'lodash'],
 						presets: ['es2015']
 					}
 				}],
 			},
+			'plugins': [
+    			new LodashModuleReplacementPlugin
+			],
 			output: {
 				filename: 'main.js'
 			}

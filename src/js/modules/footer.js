@@ -1,6 +1,8 @@
 import $ from "jquery";
+import _ from 'lodash';
+import { throttle } from 'lodash/fp';
 import { debug } from "./debug";
-import { footerPhrase } from "./footer-phrase"
+import { footerPhrase } from "./footer-phrase";
 
 
 
@@ -17,6 +19,12 @@ function randomizePhrases(array, randomizeConfig) {
 		randomizeConfig.start++;
 		console.log(randomizeConfig)
 	}
+}
+
+function sayPhrase(phrases, randomNumberConfig, $injectionPoint) {
+	debug('Mii Clicked!', 'success')
+	randomizePhrases(phrases, randomNumberConfig)
+	footerPhrase(phrases[randomNumberConfig.newRandomNumber], $injectionPoint)
 }
 
 export function footer() {
@@ -53,10 +61,11 @@ export function footer() {
 	}
 
 	
-
+	let miiSpeak = _.throttle(function() {
+		sayPhrase(phrases, randomNumberConfig, $speechBubble)
+	}, 2100);
+	// console.log(miiSpeak)
 	$footerLogo.click(() => {
-		debug('Mii Clicked!', 'success')
-		randomizePhrases(phrases, randomNumberConfig)
-		footerPhrase(phrases[randomNumberConfig.newRandomNumber], $speechBubble)
-	})
+		miiSpeak();
+	});
 }

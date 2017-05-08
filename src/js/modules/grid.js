@@ -76,13 +76,8 @@ function grid() {
             e.preventDefault();
 
             //adjust colors
-            if ($('html').hasClass('konami')) {
-              debug('konami active');
-              console.log('konami active');
-              fillColor = $('.theme-color-bg-secondary').css('background-color');
-              circleOverlay.tune({ fill: fillColor })
-            }
-
+            fillColor = $('.theme-color-bg-secondary').css('background-color');
+            circleOverlay.tune({ fill: fillColor })
 
             //remove currecnt active states
             $gridItem.removeClass('active');
