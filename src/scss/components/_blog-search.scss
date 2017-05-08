@@ -29,13 +29,12 @@
             .fa {
                 right: 17%;
                 font-size: 1.25em;
-                top: 25px;
+                top: 0px;
 
                 @include breakpoint(desktop) {
                     max-width: 50%;
                     right: 27%;
                     font-size: 1.75em;
-                    top: 35px;
                 }
             }
 

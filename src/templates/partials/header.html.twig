@@ -27,8 +27,13 @@
 <div class="hero">
     <div class="hero-wrap container">
         <div class="hero-text">
-            <h1>{{page.header.hero.h1}}</h1>
-            <h2>{{page.header.hero.h2}}</h2>
+            {% if page.title == 'Search Results'%}
+                <h1>KSQUARED</h1>
+                <h2>A collection of thoughts on tech, life &amp; code</h2>
+            {% else %}
+                <h1>{{page.header.hero.h1}}</h1>
+                <h2>{{page.header.hero.h2}}</h2>
+            {% endif %}
         </div>
     </div>
 </div>
