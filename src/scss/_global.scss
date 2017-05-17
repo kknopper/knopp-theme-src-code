@@ -12,6 +12,12 @@ body {
 	min-height: 100vh;
 }
 
+.body-wrapper {
+	flex-direction: column nowrap;
+	flex: 1 1 auto;
+	min-height: 100vh;
+}
+
 h1 {
 	font-family: 'League Spartan';
 	font-size: em(40);
@@ -65,7 +71,8 @@ p, article {
 
 main {
 	position: relative;
-	flex: 1;
+	// flex: 1 100%;
+	flex-grow: 1;
 }
 
 main section {

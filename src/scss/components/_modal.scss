@@ -64,14 +64,19 @@
 		}
 
 		p {
-			font-size: rem(24);
+			font-size: rem(16);
 			color: $color-white;
 			// text-align: center;
-			padding: 20px;
+			padding: 10px;
     		margin: 0 auto 1.5625em;
+
+			@include breakpoint(tablet) {
+				padding: 20px;
+			}
 
     		@include breakpoint(desktop) {
     			max-width: 75%;
+				font-size: rem(24);
     		}
 		}
 
@@ -84,6 +89,10 @@
 			@include breakpoint(desktop) {
 				max-width: 75%;
 			}
+		}
+
+		.button {
+			margin-bottom: 40px;
 		}
 	}
 }

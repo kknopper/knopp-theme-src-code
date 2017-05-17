@@ -11,6 +11,16 @@
 			text-align: center;
 		}
 
+		.tag {
+			width: 125px;
+			font-size: rem(9);
+
+			@include breakpoint(mobile) {
+				width: 150px;
+				font-size: rem(12);
+			}
+		}
+
 		a {
 			cursor: pointer;
 		}

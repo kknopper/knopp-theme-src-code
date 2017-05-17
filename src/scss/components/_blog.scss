@@ -69,9 +69,11 @@
 		color: $color-black;
 		order: 1;
 		display: block;
+		width: 100%;
 
 		@include breakpoint($bp-medium-large) {
 			order: 2;
+			width: auto;
 		}
 
 		@include breakpoint(desktop) {
