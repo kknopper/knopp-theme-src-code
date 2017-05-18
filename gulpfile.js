@@ -5,7 +5,7 @@ var gulp = require('gulp'),
 	fs = require('fs'),
 	util = require('gulp-util'),
 	uglify = require('gulp-uglify'),
-	cleanCSS = require('gulp-clean-css'),
+	cssnano = require('gulp-cssnano'),
 	// scsslint = require('gulp-scss-lint'),
 	// scsslint = require('gulp-scss-lint'),
 	// jshint = require('gulp-jshint'),
@@ -129,7 +129,7 @@ gulp.task('scss', function(){
 	    .pipe(sass.sync().on('error', sass.logError))
 	    // .pipe(scsslint())
 	    .pipe(autoprefixer())
-		.pipe(conf.production ? cleanCSS() : util.noop())
+		.pipe(conf.production ? cssnano() : util.noop())
 		.pipe(sourcemaps.write())
 	    .pipe(gulp.dest(conf.dist.css))
 	    .pipe(browserSync.stream());
