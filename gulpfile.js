@@ -45,7 +45,7 @@ gulp.task('js', function() {
 				filename: 'main.js'
 			}
 		}, webpack2))
-		.pipe(conf.production ? uglify() : util.noop()) //compress js on prod // gulp --production
+		.pipe(conf.production ? uglify({ compress: { drop_console: true}}) : util.noop()) //compress js on prod // gulp --production
 		.pipe(gulp.dest(conf.dist.js))
 })
 
