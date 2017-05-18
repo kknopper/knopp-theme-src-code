@@ -5,7 +5,8 @@ var gulp = require('gulp'),
 	fs = require('fs'),
 	util = require('gulp-util'),
 	uglify = require('gulp-uglify'),
-	cssnano = require('gulp-cssnano'),
+	cleanCSS = require('gulp-clean-css'),
+	replace = require('gulp-string-replace');
 	// scsslint = require('gulp-scss-lint'),
 	// scsslint = require('gulp-scss-lint'),
 	// jshint = require('gulp-jshint'),
@@ -45,12 +46,14 @@ gulp.task('js', function() {
 				filename: 'main.js'
 			}
 		}, webpack2))
+		.pipe(replace(/["']*use strict["';]*/gi, '')) //hack to remove `use stick to allow mojs import to work with es6 https://github.com/legomushroom/mojs/issues/126#issuecomment-287149517
 		.pipe(conf.production ? uglify({ compress: { drop_console: true}}) : util.noop()) //compress js on prod // gulp --production
 		.pipe(gulp.dest(conf.dist.js))
 })
 
 gulp.task('js-watch', function() {
 	return gulp.src(conf.src.js)
+		
 		.pipe(webpack({
 			watch: true,
 			module: {
@@ -66,6 +69,7 @@ gulp.task('js-watch', function() {
 				filename: 'main.js'
 			}
 		}))
+		.pipe(replace(/["']*use strict["';]*/gi, ''))
 		.pipe(gulp.dest(conf.dist.js))
 })
 
@@ -129,7 +133,7 @@ gulp.task('scss', function(){
 	    .pipe(sass.sync().on('error', sass.logError))
 	    // .pipe(scsslint())
 	    .pipe(autoprefixer())
-		.pipe(conf.production ? cssnano() : util.noop())
+		.pipe(conf.production ? cleanCSS() : util.noop())
 		.pipe(sourcemaps.write())
 	    .pipe(gulp.dest(conf.dist.css))
 	    .pipe(browserSync.stream());

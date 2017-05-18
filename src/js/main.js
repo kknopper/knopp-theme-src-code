@@ -11,9 +11,6 @@ import { footer } from "./modules/footer";
 $(document).ready(function() {
 
 	debug('document ready')
-	grid();
-	footer()
-	konami();	
 	
 	//Variables
 	let md = new MobileDetect(window.navigator.userAgent),
@@ -34,4 +31,8 @@ $(document).ready(function() {
 		$header.toggleClass('active')
 		debug("toggle header");
 	})
+	
+	grid();
+	footer()
+	konami();	
 });

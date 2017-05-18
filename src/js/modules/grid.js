@@ -1,4 +1,4 @@
-// import mojs from 'mo-js';
+import mojs from 'mo-js';
 import $ from "jquery";
 import { debug } from "./debug";
 import mixitup from 'mixitup';
