@@ -1,9 +1,10 @@
+// import mojs from 'mo-js';
 import $ from "jquery";
 import { debug } from "./debug";
 import mixitup from 'mixitup';
 import imagesLoaded from 'imagesloaded';
 imagesLoaded.makeJQueryPlugin($);
-// import mojs from 'mo-js';
+
 // jQuery.ready(function() {
 // 	console.log('add filterizr')
 // 	require('filterizr');

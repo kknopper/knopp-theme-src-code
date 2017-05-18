@@ -1,26 +1,30 @@
 .hero {
 	height: 415px;
 	width: 100%;
-	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero.jpg') 0 0 / cover no-repeat;
+	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero-640.jpg') 0 0 / cover no-repeat;
+
+	@include breakpoint(mobile) {
+		background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero-960.jpg') 0 0 / cover no-repeat;
+	}
 
 	@include breakpoint(tablet) {
-		background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero.jpg') 0 -55px / cover no-repeat;
+		background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero-960.jpg') 0 -55px / cover no-repeat;
 	}
 
 	@include breakpoint(desktop) {
-		background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero.jpg') 0 -150px / cover no-repeat;
-	}
-
-	@include breakpoint(l-desktop) {
-		background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero.jpg') 0 35% / cover no-repeat;
+		background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero-960.jpg') 0 -150px / cover no-repeat;
 	}
 
 	@include breakpoint(xl-desktop) {
-		background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero.jpg') 0 40% / cover no-repeat;
+		background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero-2000.jpg') 0 35% / cover no-repeat;
 	}
 
 	@include breakpoint(xxl-desktop) {
-		background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero.jpg') 0 50% / cover no-repeat;
+		background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero-2000.jpg') 0 40% / cover no-repeat;
+	}
+
+	@include breakpoint(xxxl-desktop) {
+		background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero-max.jpg') 0 50% / cover no-repeat;
 	}
 
 	&-wrap {

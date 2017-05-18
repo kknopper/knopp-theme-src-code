@@ -48,11 +48,11 @@
 //desktop: 960
 //tablet: 640
 @mixin breakpoint($point) {
-  @if $point == xxl-desktop {
+  @if $point == xxxl-desktop {
     @media (min-width: $bp-xxxlarge) { @content; }
-  } @else if $point == xl-desktop {
+  } @else if $point == xxl-desktop {
     @media (min-width: $bp-xxlarge) { @content; }
-  } @else if $point == l-desktop {
+  } @else if $point == xl-desktop {
     @media (min-width: $bp-xlarge) { @content; }
   } @else if $point == desktop {
     @media (min-width: $bp-large)  { @content; }

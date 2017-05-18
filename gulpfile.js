@@ -3,6 +3,9 @@ var gulp = require('gulp'),
 	plumber = require('gulp-plumber'),
 	sass = require('gulp-sass'),
 	fs = require('fs'),
+	util = require('gulp-util'),
+	uglify = require('gulp-uglify'),
+	cleanCSS = require('gulp-clean-css'),
 	// scsslint = require('gulp-scss-lint'),
 	// scsslint = require('gulp-scss-lint'),
 	// jshint = require('gulp-jshint'),
@@ -15,10 +18,12 @@ var gulp = require('gulp'),
  	buffer = require('vinyl-buffer'),
  	htmlInjector = require('bs-html-injector'),
  	webpack = require('gulp-webpack'),
+	webpack2 = require('webpack'),
 	LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
  	browserSync = require('browser-sync').create();
-var conf = require('./config.json');
 
+var conf = require('./config.json');
+conf.production = !!util.env.production;
 
 gulp.task('js', function() {
 	return gulp.src(conf.src.js)
@@ -39,7 +44,8 @@ gulp.task('js', function() {
 			output: {
 				filename: 'main.js'
 			}
-		}))
+		}, webpack2))
+		.pipe(conf.production ? uglify() : util.noop()) //compress js on prod // gulp --production
 		.pipe(gulp.dest(conf.dist.js))
 })
 
@@ -123,6 +129,7 @@ gulp.task('scss', function(){
 	    .pipe(sass.sync().on('error', sass.logError))
 	    // .pipe(scsslint())
 	    .pipe(autoprefixer())
+		.pipe(conf.production ? cleanCSS() : util.noop())
 		.pipe(sourcemaps.write())
 	    .pipe(gulp.dest(conf.dist.css))
 	    .pipe(browserSync.stream());
